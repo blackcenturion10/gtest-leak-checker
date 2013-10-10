@@ -30,9 +30,7 @@
 #include "gtest/gtest.h"
 
 namespace leak_checker {
-
 #ifdef _WIN32
-
 inline int __cdecl ReportHook(int /* report_type */, char* message,
                               int* /* returnValue */) {
   printf("%s", message);
@@ -86,7 +84,5 @@ class LeakChecker : public testing::EmptyTestEventListener {
   bool leaked_;
 #endif // _DEBUG
 };
-
 #endif // _WIN32
-
 } // namespace leak_checker
